@@ -7,326 +7,325 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
-:root {
-  --green-dark:#1a4a2e; --green-mid:#2d7a4f; --green-light:#4caf78;
-  --gold:#e8b84b; --gold-light:#f5d78a; --cream:#fdf8ef;
-  --brown:#5c3d1e; --text-dark:#1a2e1a; --text-mid:#3a5a3a;
-  --border:#b8d4b8; --error:#c0392b; --paid:#1565c0;
-  --shadow:0 4px 28px rgba(26,74,46,0.13);
+:root{
+  --gd:#1a4a2e;--gm:#2d7a4f;--gl:#4caf78;
+  --gold:#e8b84b;--gold2:#f5d78a;--cream:#fdf8ef;
+  --brown:#5c3d1e;--td:#1a2e1a;--tm:#3a5a3a;
+  --bdr:#b8d4b8;--err:#c0392b;--blue:#1565c0;
+  --shd:0 4px 28px rgba(26,74,46,.13);
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Noto Sans Telugu',sans-serif;background:var(--cream);color:var(--text-dark);min-height:100vh;
-  background-image:radial-gradient(ellipse at 0% 0%,rgba(76,175,120,.07) 0%,transparent 55%),radial-gradient(ellipse at 100% 100%,rgba(232,184,75,.07) 0%,transparent 55%);}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans Telugu',sans-serif;background:var(--cream);color:var(--td);min-height:100vh;
+  background-image:radial-gradient(ellipse at 0% 0%,rgba(76,175,120,.07) 0%,transparent 55%),radial-gradient(ellipse at 100% 100%,rgba(232,184,75,.07) 0%,transparent 55%)}
 
 /* HEADER */
-header{background:linear-gradient(135deg,var(--green-dark) 0%,var(--green-mid) 65%,#3a9b60 100%);position:relative;overflow:hidden;}
-header::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='.04'%3E%3Cpath d='M30 28v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM30 2V0h-2v2h-4v2h4v4h2V4h4V2h-4zM4 28v-4H2v4H0v2h2v4h2v-4h4v-2H4zM4 2V0H2v2H0v2h2v4h2V4h4V2H4z'/%3E%3C/g%3E%3C/svg%3E");}
-.header-inner{max-width:1040px;margin:0 auto;padding:24px 20px 20px;display:flex;align-items:center;gap:14px;position:relative;z-index:1;}
-.header-icon{width:58px;height:58px;flex-shrink:0;background:rgba(232,184,75,.18);border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;}
-.header-text h1{font-size:22px;font-weight:700;color:#fff;line-height:1.2;}
-.header-text p{font-size:12px;color:rgba(255,255,255,.72);margin-top:3px;}
-.status-pill{margin-left:auto;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.25);border-radius:20px;padding:5px 12px;font-size:11px;color:#fff;white-space:nowrap;flex-shrink:0;}
-.status-dot{width:8px;height:8px;border-radius:50%;background:#aaa;flex-shrink:0;}
-.status-dot.ok{background:#4cff88;box-shadow:0 0 6px #4cff88;}
-.status-dot.err{background:#ff5555;}
-.status-dot.spin{background:conic-gradient(var(--gold) 0deg,transparent 270deg);animation:spin .8s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-.gold-bar{height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));}
+header{background:linear-gradient(135deg,var(--gd) 0%,var(--gm) 65%,#3a9b60 100%);position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='.04'%3E%3Cpath d='M30 28v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM30 2V0h-2v2h-4v2h4v4h2V4h4V2h-4zM4 28v-4H2v4H0v2h2v4h2v-4h4v-2H4zM4 2V0H2v2H0v2h2v4h2V4h4V2H4z'/%3E%3C/g%3E%3C/svg%3E")}
+.hi{max-width:1040px;margin:0 auto;padding:22px 18px 18px;display:flex;align-items:center;gap:13px;position:relative;z-index:1}
+.hico{width:56px;height:56px;flex-shrink:0;background:rgba(232,184,75,.18);border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:27px}
+.htxt h1{font-size:21px;font-weight:700;color:#fff;line-height:1.2}
+.htxt p{font-size:11.5px;color:rgba(255,255,255,.72);margin-top:3px}
+.spill{margin-left:auto;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.25);border-radius:20px;padding:5px 12px;font-size:11px;color:#fff;white-space:nowrap;flex-shrink:0}
+.sdot{width:8px;height:8px;border-radius:50%;background:#aaa;flex-shrink:0}
+.sdot.ok{background:#4cff88;box-shadow:0 0 6px #4cff88}
+.sdot.err{background:#ff5555}
+.sdot.spin{background:conic-gradient(var(--gold) 0deg,transparent 270deg);animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.gbar{height:4px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold))}
 
 /* TABS */
-.tabs-nav{background:var(--green-dark);display:flex;max-width:100%;overflow-x:auto;border-bottom:3px solid var(--gold);}
-.tab-btn{font-family:'Noto Sans Telugu',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.6);background:none;border:none;cursor:pointer;padding:13px 20px;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px;transition:all .2s;display:flex;align-items:center;gap:6px;}
-.tab-btn:hover{color:#fff;background:rgba(255,255,255,.06);}
-.tab-btn.active{color:#fff;border-bottom-color:var(--gold);background:rgba(255,255,255,.09);}
+.tnav{background:var(--gd);display:flex;max-width:100%;overflow-x:auto;border-bottom:3px solid var(--gold)}
+.tbtn{font-family:'Noto Sans Telugu',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.6);background:none;border:none;cursor:pointer;padding:13px 18px;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px;transition:all .2s;display:flex;align-items:center;gap:5px}
+.tbtn:hover{color:#fff;background:rgba(255,255,255,.06)}
+.tbtn.active{color:#fff;border-bottom-color:var(--gold);background:rgba(255,255,255,.09)}
 
 /* LAYOUT */
-.container{max-width:1040px;margin:0 auto;padding:24px 16px 60px;}
-.tab-pane{display:none;}
-.tab-pane.active{display:block;}
+.wrap{max-width:1040px;margin:0 auto;padding:22px 15px 60px}
+.tp{display:none}.tp.active{display:block}
 
 /* CARD */
-.card{background:#fff;border-radius:14px;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--border);margin-bottom:22px;}
-.card-header{background:linear-gradient(90deg,var(--green-dark),var(--green-mid));color:#fff;padding:13px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;}
-.card-header h2{font-size:14px;font-weight:600;}
-.card-body{padding:22px;}
+.card{background:#fff;border-radius:13px;box-shadow:var(--shd);overflow:hidden;border:1px solid var(--bdr);margin-bottom:20px}
+.ch{background:linear-gradient(90deg,var(--gd),var(--gm));color:#fff;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.ch h2{font-size:14px;font-weight:600}
+.cb{padding:20px}
+
+/* BADGES */
+.badge{background:var(--gold);color:var(--brown);border-radius:20px;padding:3px 11px;font-size:12px;font-weight:700}
+.bpaid{background:#1565c0;color:#fff;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:700}
+.bpart{background:#e65100;color:#fff;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:700}
+.bunpaid{background:#c62828;color:#fff;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:700}
+.rhr{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 
 /* TABLE */
-.badge{background:var(--gold);color:var(--brown);border-radius:20px;padding:3px 12px;font-size:12px;font-weight:700;}
-.badge-paid{background:#1565c0;color:#fff;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700;}
-.badge-unpaid{background:#e53935;color:#fff;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700;}
-.rh-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.table-wrap{overflow-x:auto;}
-table{width:100%;border-collapse:collapse;font-size:12.5px;}
-thead th{background:#f0f7f0;color:var(--green-dark);padding:9px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--border);white-space:nowrap;}
-tbody tr:nth-child(even){background:#fafdf8;}
-tbody tr:hover{background:#f0faf2;transition:background .12s;}
-tbody td{padding:8px 12px;border-bottom:1px solid #edf5ed;vertical-align:middle;}
-.empty-state{text-align:center;padding:30px;color:#90a090;font-size:14px;}
-.empty-state .icon{font-size:36px;margin-bottom:8px;}
-.skeleton{display:inline-block;background:linear-gradient(90deg,#e8f0e8 25%,#d0e4d0 50%,#e8f0e8 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:4px;}
-@keyframes shimmer{to{background-position:-200% 0;}}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+thead th{background:#f0f7f0;color:var(--gd);padding:9px 11px;text-align:left;font-weight:600;border-bottom:2px solid var(--bdr);white-space:nowrap}
+tbody tr:nth-child(even){background:#fafdf8}
+tbody tr:hover{background:#f0faf2;transition:background .12s}
+tbody td{padding:8px 11px;border-bottom:1px solid #edf5ed;vertical-align:middle}
+.emp{text-align:center;padding:28px;color:#90a090;font-size:14px}
+.emp .ico{font-size:34px;margin-bottom:8px}
+.sk{display:inline-block;background:linear-gradient(90deg,#e8f0e8 25%,#d0e4d0 50%,#e8f0e8 75%);background-size:200% 100%;animation:shim 1.4s infinite;border-radius:4px}
+@keyframes shim{to{background-position:-200% 0}}
 
 /* FORM */
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.form-group{display:flex;flex-direction:column;gap:5px;}
-.form-group.full{grid-column:1/-1;}
-label{font-size:13px;font-weight:600;color:var(--green-dark);}
-label .req{color:var(--error);margin-left:3px;}
-input,select{font-family:'Noto Sans Telugu',sans-serif;font-size:14px;padding:10px 12px;border:1.5px solid var(--border);border-radius:9px;color:var(--text-dark);background:#fafffe;outline:none;transition:border-color .2s,box-shadow .2s;width:100%;}
-input:focus,select:focus{border-color:var(--green-mid);box-shadow:0 0 0 3px rgba(45,122,79,.11);}
-input.err,select.err{border-color:var(--error);}
-.other-input{margin-top:6px;display:none;}
-.other-input.show{display:block;}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.fg .g{display:flex;flex-direction:column;gap:5px}
+.fg .g.full{grid-column:1/-1}
+label{font-size:13px;font-weight:600;color:var(--gd)}
+label .r{color:var(--err);margin-left:3px}
+input,select{font-family:'Noto Sans Telugu',sans-serif;font-size:14px;padding:10px 11px;border:1.5px solid var(--bdr);border-radius:9px;color:var(--td);background:#fafffe;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+input:focus,select:focus{border-color:var(--gm);box-shadow:0 0 0 3px rgba(45,122,79,.11)}
+input.er,select.er{border-color:var(--err)}
+.oth{margin-top:5px;display:none}
+.oth.show{display:block}
+.hint{font-size:11px;color:var(--tm);margin-top:2px}
 
 /* CALC BOX */
-.calc-box{background:linear-gradient(135deg,#f0faf4,#e8f5ec);border:2px solid var(--green-light);border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:4px;}
-.calc-item{display:flex;flex-direction:column;align-items:center;gap:3px;}
-.calc-item .lbl{font-size:10.5px;color:var(--text-mid);font-weight:500;text-align:center;}
-.calc-item .val{font-size:16px;font-weight:700;color:var(--green-dark);}
-.calc-div{color:#aacfaa;font-size:18px;font-weight:700;}
-.total-box{background:var(--green-dark);color:#fff;border-radius:10px;padding:9px 14px;text-align:center;}
-.total-box .lbl{font-size:10px;opacity:.8;}
-.total-box .val{font-size:18px;font-weight:700;color:var(--gold);}
+.cbox{background:linear-gradient(135deg,#f0faf4,#e8f5ec);border:2px solid var(--gl);border-radius:12px;padding:13px 15px;display:flex;justify-content:space-between;align-items:center;gap:9px;flex-wrap:wrap;margin-top:4px}
+.ci{display:flex;flex-direction:column;align-items:center;gap:2px}
+.ci .lb{font-size:10px;color:var(--tm);font-weight:500;text-align:center}
+.ci .vl{font-size:15px;font-weight:700;color:var(--gd)}
+.cdv{color:#aacfaa;font-size:17px;font-weight:700}
+.ctot{background:var(--gd);color:#fff;border-radius:9px;padding:8px 13px;text-align:center}
+.ctot .lb{font-size:10px;opacity:.8}
+.ctot .vl{font-size:17px;font-weight:700;color:var(--gold)}
 
-/* FILTER BAR */
-.filter-bar{background:linear-gradient(135deg,#f0faf4,#fdf8ef);border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end;margin-bottom:18px;}
-.filter-summary{background:linear-gradient(90deg,var(--green-dark),var(--green-mid));color:#fff;border-radius:10px;padding:12px 18px;display:flex;gap:28px;flex-wrap:wrap;margin-bottom:16px;}
-.filter-summary .fs-item{display:flex;flex-direction:column;gap:2px;}
-.filter-summary .fs-lbl{font-size:10.5px;opacity:.8;}
-.filter-summary .fs-val{font-size:16px;font-weight:700;color:var(--gold);}
+/* FILTER */
+.fbar{background:linear-gradient(135deg,#f0faf4,#fdf8ef);border:1.5px solid var(--bdr);border-radius:11px;padding:14px 16px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:11px;align-items:end;margin-bottom:16px}
+.fsum{background:linear-gradient(90deg,var(--gd),var(--gm));color:#fff;border-radius:9px;padding:11px 16px;display:flex;gap:24px;flex-wrap:wrap;margin-bottom:14px}
+.fsum .fi{display:flex;flex-direction:column;gap:2px}
+.fsum .fl{font-size:10px;opacity:.8}
+.fsum .fv{font-size:15px;font-weight:700;color:var(--gold)}
 
 /* BUTTONS */
-.form-actions{display:flex;gap:10px;margin-top:22px;padding-top:18px;border-top:1px solid #edf5ed;flex-wrap:wrap;}
-.btn{font-family:'Noto Sans Telugu',sans-serif;font-size:13.5px;font-weight:600;padding:10px 22px;border:none;border-radius:9px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s;}
-.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;}
-.btn-primary{background:linear-gradient(135deg,var(--green-mid),var(--green-dark));color:#fff;box-shadow:0 3px 12px rgba(45,122,79,.25);}
-.btn-primary:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 5px 18px rgba(45,122,79,.35);}
-.btn-export{background:linear-gradient(135deg,var(--gold),#d4a030);color:var(--brown);box-shadow:0 3px 12px rgba(232,184,75,.3);}
-.btn-export:hover:not(:disabled){transform:translateY(-1px);}
-.btn-clear{background:#f5f5f5;color:#666;border:1.5px solid #ddd;}
-.btn-clear:hover{background:#eee;}
-.btn-paid{background:linear-gradient(135deg,#1976d2,#0d47a1);color:#fff;box-shadow:0 3px 12px rgba(21,101,192,.3);}
-.btn-paid:hover:not(:disabled){transform:translateY(-1px);}
-.btn-delete{background:none;border:none;color:var(--error);cursor:pointer;font-size:14px;padding:4px 7px;border-radius:6px;transition:background .12s;}
-.btn-delete:hover{background:#ffeaea;}
-.btn-sm{font-family:'Noto Sans Telugu',sans-serif;font-size:11.5px;font-weight:600;padding:6px 12px;border:none;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .18s;}
-.btn-sm-gold{background:var(--gold);color:var(--brown);}
-.btn-sm-gold:hover{transform:translateY(-1px);}
-.btn-sm-white{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25);}
-.btn-sm-white:hover{background:rgba(255,255,255,.25);}
-.btn-sm-blue{background:#1565c0;color:#fff;}
-.btn-sm-blue:hover{background:#0d47a1;}
+.fa{display:flex;gap:9px;margin-top:20px;padding-top:16px;border-top:1px solid #edf5ed;flex-wrap:wrap}
+.btn{font-family:'Noto Sans Telugu',sans-serif;font-size:13px;font-weight:600;padding:10px 20px;border:none;border-radius:9px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+.bprim{background:linear-gradient(135deg,var(--gm),var(--gd));color:#fff;box-shadow:0 3px 12px rgba(45,122,79,.25)}
+.bprim:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 5px 16px rgba(45,122,79,.35)}
+.bexp{background:linear-gradient(135deg,var(--gold),#d4a030);color:var(--brown);box-shadow:0 3px 12px rgba(232,184,75,.3)}
+.bexp:hover:not(:disabled){transform:translateY(-1px)}
+.bclr{background:#f5f5f5;color:#666;border:1.5px solid #ddd}
+.bclr:hover{background:#eee}
+.bpay{background:linear-gradient(135deg,#1976d2,#0d47a1);color:#fff;box-shadow:0 3px 10px rgba(21,101,192,.3)}
+.bpay:hover:not(:disabled){transform:translateY(-1px)}
+.bdel{background:none;border:none;color:var(--err);cursor:pointer;font-size:13px;padding:4px 6px;border-radius:6px;transition:background .12s}
+.bdel:hover{background:#ffeaea}
+.bsm{font-family:'Noto Sans Telugu',sans-serif;font-size:11px;font-weight:600;padding:5px 11px;border:none;border-radius:7px;cursor:pointer;display:flex;align-items:center;gap:4px;transition:all .18s}
+.bsg{background:var(--gold);color:var(--brown)}.bsg:hover{transform:translateY(-1px)}
+.bsw{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25)}.bsw:hover{background:rgba(255,255,255,.25)}
 
 /* FARMER SEARCH */
-.search-box{background:linear-gradient(135deg,#f0faf4,#fdf8ef);border:2px solid var(--border);border-radius:12px;padding:18px;display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;margin-bottom:20px;}
-.farmer-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(26,74,46,.08);margin-bottom:14px;}
-.farmer-card-header{background:linear-gradient(90deg,var(--green-dark),var(--green-mid));color:#fff;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
-.farmer-card-header .fname{font-size:15px;font-weight:700;}
-.farmer-card-header .fvillage{font-size:11.5px;opacity:.8;margin-top:1px;}
-.farmer-stats{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--border);}
-.stat-item{padding:12px 10px;text-align:center;border-right:1px solid var(--border);}
-.stat-item:last-child{border-right:none;}
-.stat-item .s-lbl{font-size:10.5px;color:var(--text-mid);font-weight:500;margin-bottom:4px;}
-.stat-item .s-val{font-size:16px;font-weight:700;color:var(--green-dark);}
-.stat-item .s-val.red{color:var(--error);}
-.stat-item .s-val.gold{color:#b8860b;}
-.stat-item .s-val.blue{color:#1565c0;}
-.farmer-actions{padding:12px 18px;background:#f8fdf8;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--border);}
-.farmer-actions span{font-size:12px;color:var(--text-mid);}
+.sbox{background:linear-gradient(135deg,#f0faf4,#fdf8ef);border:2px solid var(--bdr);border-radius:11px;padding:16px;display:grid;grid-template-columns:1fr 1fr auto;gap:11px;align-items:end;margin-bottom:18px}
+.fc{background:#fff;border:1px solid var(--bdr);border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(26,74,46,.08);margin-bottom:13px}
+.fch{background:linear-gradient(90deg,var(--gd),var(--gm));color:#fff;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:7px}
+.fch .fn{font-size:15px;font-weight:700}
+.fch .fv2{font-size:11px;opacity:.8;margin-top:1px}
+.fst{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--bdr)}
+.si{padding:11px 9px;text-align:center;border-right:1px solid var(--bdr)}
+.si:last-child{border-right:none}
+.si .sl{font-size:10px;color:var(--tm);font-weight:500;margin-bottom:3px}
+.si .sv{font-size:15px;font-weight:700;color:var(--gd)}
+.si .sv.rd{color:var(--err)}.si .sv.gd{color:#b8860b}.si .sv.bl{color:#1565c0}
+.fact{padding:11px 16px;background:#f8fdf8;display:flex;gap:9px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--bdr)}
+.fact span{font-size:12px;color:var(--tm)}
 
-/* PAID TAB */
-.paid-banner{background:linear-gradient(135deg,#e3f2fd,#fff);border:2px solid #90caf9;border-radius:12px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;gap:12px;}
-.paid-banner .icon{font-size:28px;}
-.paid-banner p{font-size:13px;color:#1565c0;}
+/* PAID BANNER */
+.pbanner{background:linear-gradient(135deg,#e3f2fd,#fff);border:2px solid #90caf9;border-radius:11px;padding:13px 16px;margin-bottom:16px;display:flex;align-items:center;gap:11px}
+.pbanner p{font-size:13px;color:#1565c0}
 
-/* PAYMENT MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center;}
-.modal-overlay.show{display:flex;}
-.modal{background:#fff;border-radius:16px;padding:28px;max-width:440px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.3);}
-.modal h3{font-size:17px;font-weight:700;color:var(--green-dark);margin-bottom:6px;}
-.modal p{font-size:13px;color:var(--text-mid);margin-bottom:18px;}
-.modal-amount{background:linear-gradient(135deg,#f0faf4,#e8f5ec);border:2px solid var(--green-light);border-radius:10px;padding:14px;text-align:center;margin-bottom:18px;}
-.modal-amount .lbl{font-size:12px;color:var(--text-mid);}
-.modal-amount .amt{font-size:26px;font-weight:700;color:var(--green-dark);}
-.modal-actions{display:flex;gap:10px;}
-.modal-actions .btn{flex:1;justify-content:center;}
+/* MODAL */
+.movl{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;align-items:center;justify-content:center;padding:16px}
+.movl.show{display:flex}
+.mo{background:#fff;border-radius:16px;padding:26px;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.mo h3{font-size:16px;font-weight:700;color:var(--gd);margin-bottom:5px}
+.mo p{font-size:12.5px;color:var(--tm);margin-bottom:16px}
+.mamt{background:linear-gradient(135deg,#f0faf4,#e8f5ec);border:2px solid var(--gl);border-radius:9px;padding:12px;text-align:center;margin-bottom:16px}
+.mamt .ml{font-size:11.5px;color:var(--tm)}
+.mamt .ma{font-size:24px;font-weight:700;color:var(--gd)}
+.mamt .mr{font-size:13px;color:var(--err);font-weight:600;margin-top:4px}
+.minp{margin-bottom:14px}
+.minp label{display:block;font-size:13px;font-weight:600;color:var(--gd);margin-bottom:6px}
+.minp input{font-family:'Noto Sans Telugu',sans-serif;font-size:16px;padding:11px 13px;border:2px solid var(--bdr);border-radius:9px;width:100%;outline:none;transition:border-color .2s}
+.minp input:focus{border-color:var(--gm)}
+.minp .hint{font-size:11px;color:var(--tm);margin-top:4px}
+.moacts{display:flex;gap:9px}
+.moacts .btn{flex:1;justify-content:center}
+.moswitch{display:flex;border-radius:9px;overflow:hidden;border:1.5px solid var(--bdr);margin-bottom:14px}
+.msw{font-family:'Noto Sans Telugu',sans-serif;font-size:12.5px;font-weight:600;padding:9px 0;flex:1;border:none;cursor:pointer;transition:all .2s;background:#f5f5f5;color:#666}
+.msw.sel{background:var(--gm);color:#fff}
 
 /* TOAST */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--green-dark);color:#fff;padding:11px 16px;border-radius:11px;font-size:13.5px;font-weight:500;box-shadow:0 6px 24px rgba(0,0,0,.2);display:flex;align-items:center;gap:8px;transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(.34,1.56,.64,1);z-index:999;}
-.toast.show{transform:translateY(0);opacity:1;}
-.toast.warn{background:linear-gradient(135deg,var(--gold),#d4a030);color:var(--brown);}
-.toast.fail{background:#c0392b;}
+.toast{position:fixed;bottom:22px;right:22px;background:var(--gd);color:#fff;padding:11px 16px;border-radius:11px;font-size:13px;font-weight:500;box-shadow:0 6px 24px rgba(0,0,0,.2);display:flex;align-items:center;gap:8px;transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(.34,1.56,.64,1);z-index:999}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.warn{background:linear-gradient(135deg,var(--gold),#d4a030);color:var(--brown)}
+.toast.fail{background:#c0392b}
 
 @media(max-width:640px){
-  .form-grid{grid-template-columns:1fr;}
-  .form-group.full{grid-column:1;}
-  .header-text h1{font-size:17px;}
-  .status-pill{display:none;}
-  .calc-box{flex-direction:column;align-items:stretch;}
-  .calc-div{display:none;}
-  .form-actions{flex-direction:column;}
-  .btn{width:100%;justify-content:center;}
-  .filter-bar{grid-template-columns:1fr;}
-  .farmer-stats{grid-template-columns:1fr 1fr;}
-  .search-box{grid-template-columns:1fr;}
-  .tab-btn{padding:11px 12px;font-size:12px;}
+  .fg{grid-template-columns:1fr}.fg .g.full{grid-column:1}
+  .htxt h1{font-size:17px}.spill{display:none}
+  .cbox{flex-direction:column;align-items:stretch}.cdv{display:none}
+  .fa{flex-direction:column}.btn{width:100%;justify-content:center}
+  .fbar{grid-template-columns:1fr}.fst{grid-template-columns:1fr 1fr}
+  .sbox{grid-template-columns:1fr}.tbtn{padding:11px 11px;font-size:12px}
+  .moacts{flex-direction:column}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="header-icon">🌾</div>
-    <div class="header-text">
+  <div class="hi">
+    <div class="hico">🌾</div>
+    <div class="htxt">
       <h1>పంట నమోదు వ్యవస్థ</h1>
       <p>Google Sheets తో అనుసంధానించబడి ఉంది · అన్ని పరికరాలలో డేటా అందుబాటులో ఉంటుంది</p>
     </div>
-    <div class="status-pill">
-      <div class="status-dot" id="status-dot"></div>
-      <span id="status-text">అనుసంధానం కాలేదు</span>
+    <div class="spill">
+      <div class="sdot" id="sdot"></div>
+      <span id="stxt">అనుసంధానం కాలేదు</span>
     </div>
   </div>
 </header>
-<div class="gold-bar"></div>
+<div class="gbar"></div>
 
-<nav class="tabs-nav">
-  <button class="tab-btn active" onclick="switchTab('tab-entry')"   id="btn-tab-entry">✏️ నమోదు చేయండి</button>
-  <button class="tab-btn"        onclick="switchTab('tab-records')" id="btn-tab-records">📋 అన్ని నమోదులు</button>
-  <button class="tab-btn"        onclick="switchTab('tab-farmer')"  id="btn-tab-farmer">👤 రైతు వివరాలు</button>
-  <button class="tab-btn"        onclick="switchTab('tab-paid')"    id="btn-tab-paid">✅ చెల్లింపు అయినవి</button>
+<nav class="tnav">
+  <button class="tbtn active" onclick="sw('t1')" id="bt1">✏️ నమోదు</button>
+  <button class="tbtn"        onclick="sw('t2')" id="bt2">📋 అన్ని నమోదులు</button>
+  <button class="tbtn"        onclick="sw('t3')" id="bt3">👤 రైతు వివరాలు</button>
+  <button class="tbtn"        onclick="sw('t4')" id="bt4">✅ చెల్లింపు అయినవి</button>
 </nav>
 
-<div class="container">
+<div class="wrap">
 
-<!-- ═══════════ TAB 1: ENTRY FORM ═══════════ -->
-<div class="tab-pane active" id="tab-entry">
+<!-- ══════════ TAB 1: ENTRY FORM ══════════ -->
+<div class="tp active" id="t1">
 <div class="card">
-  <div class="card-header"><h2>✏️ కొత్త నమోదు జోడించు</h2></div>
-  <div class="card-body">
-    <div class="form-grid">
+  <div class="ch"><h2>✏️ కొత్త నమోదు జోడించు</h2></div>
+  <div class="cb">
+    <div class="fg">
 
-      <div class="form-group">
-        <label>రైతు పేరు <span class="req">*</span></label>
-        <input id="f-name" type="text" placeholder="రైతు పూర్తి పేరు టైప్ చేయండి">
+      <div class="g">
+        <label>రైతు పేరు <span class="r">*</span></label>
+        <input id="fn" type="text" placeholder="రైతు పూర్తి పేరు టైప్ చేయండి">
       </div>
 
-      <div class="form-group">
-        <label>గ్రామం <span class="req">*</span></label>
-        <select id="f-village-sel" onchange="toggleOther('f-village-sel','f-village-other')">
+      <div class="g">
+        <label>గ్రామం <span class="r">*</span></label>
+        <select id="fvs" onchange="togOth('fvs','fvo');updateCalc()">
           <option value="">-- గ్రామం ఎంచుకోండి --</option>
           <option>వీలుపర్తి</option><option>వేపాడ</option><option>వల్లంపూడి</option>
           <option>వెల్దాం</option><option>దబ్బిరాజు పేట</option><option>నల్లబిల్లి</option>
           <option>సోంపురం</option><option>జగ్గయపేట</option><option>ఆకులసీతం పేట</option>
           <option>సింగవరం</option><option>బాణాది</option><option>ఇతర</option>
         </select>
-        <input id="f-village-other" class="other-input" type="text" placeholder="గ్రామం పేరు నమోదు చేయండి">
+        <input id="fvo" class="oth" type="text" placeholder="గ్రామం పేరు నమోదు చేయండి">
       </div>
 
-      <div class="form-group">
-        <label>పంట <span class="req">*</span></label>
-        <select id="f-crop-sel" onchange="toggleOther('f-crop-sel','f-crop-other')">
+      <div class="g">
+        <label>పంట <span class="r">*</span></label>
+        <select id="fcs" onchange="togOth('fcs','fco');updateCalc()">
           <option value="">-- పంట ఎంచుకోండి --</option>
           <option>వరి</option><option>మినుములు</option><option>పెసలు</option>
-          <option>జొన్నలు</option><option>కందులు</option><option>ఇతర</option>
+          <option>జొన్నలు</option><option>కందులు</option><option>జనుములు</option>
+          <option>ఇతర</option>
         </select>
-        <input id="f-crop-other" class="other-input" type="text" placeholder="పంట పేరు నమోదు చేయండి">
+        <input id="fco" class="oth" type="text" placeholder="పంట పేరు నమోదు చేయండి">
       </div>
 
-      <div class="form-group">
-        <label>రకం <span class="req">*</span></label>
-        <input id="f-variety" type="text" placeholder="పంట రకం పేరు">
+      <div class="g">
+        <label>రకం <span class="r">*</span></label>
+        <input id="fvar" type="text" placeholder="పంట రకం పేరు">
       </div>
 
-      <div class="form-group">
-        <label>తేదీ <span class="req">*</span></label>
-        <input id="f-date" type="date">
+      <div class="g">
+        <label>తేదీ <span class="r">*</span></label>
+        <input id="fdt" type="date">
       </div>
 
-      <div class="form-group">
-        <label>బస్తాల సంఖ్య <span class="req">*</span></label>
-        <input id="f-bags" type="number" placeholder="బస్తాల సంఖ్య (పూర్ణాంకం)" min="0" step="1" oninput="updateCalc()">
-        <span style="font-size:11px;color:var(--text-mid);margin-top:2px;">ప్రతి బస్తా = 100 కిలోలు</span>
+      <div class="g">
+        <label>బస్తాల సంఖ్య <span class="r">*</span></label>
+        <input id="fbags" type="number" placeholder="బస్తాల సంఖ్య (పూర్ణాంకం)" min="0" step="1" oninput="updateCalc()">
+        <span class="hint" id="kpb-hint">వరి పంట: బస్తాకు 84 కిలోలు | మిగతా: 100 కిలోలు</span>
       </div>
 
-      <div class="form-group">
+      <div class="g">
         <label>అదనపు కిలోలు</label>
-        <input id="f-kilos" type="number" placeholder="అదనపు కిలోలు (బస్తా కంటే తక్కువ)" min="0" max="99" step="0.1" oninput="updateCalc()">
-        <span style="font-size:11px;color:var(--text-mid);margin-top:2px;">0–99 కిలోలు మాత్రమే</span>
+        <input id="fkilos" type="number" placeholder="బస్తాలు కాకుండా అదనపు కిలోలు" min="0" max="99" step="0.1" oninput="updateCalc()">
+        <span class="hint">0–99 కిలోలు మాత్రమే</span>
       </div>
 
-      <div class="form-group">
-        <label>రేటు (₹ / కిలో) <span class="req">*</span></label>
-        <input id="f-rate" type="number" placeholder="ప్రతి కిలో ధర" min="0" step="0.01" oninput="updateCalc()">
+      <div class="g">
+        <label>రేటు (₹ / కిలో) <span class="r">*</span></label>
+        <input id="frate" type="number" placeholder="ప్రతి కిలో ధర" min="0" step="0.01" oninput="updateCalc()">
       </div>
 
-      <div class="form-group">
-        <label>వాడకం (₹) <span class="req">*</span></label>
-        <input id="f-vadakam" type="number" placeholder="వాడకం మొత్తం రూపాయలలో" min="0" step="0.01" value="0" oninput="updateCalc()">
+      <div class="g">
+        <label>వాడకం (₹) <span class="r">*</span></label>
+        <input id="fvad" type="number" placeholder="వాడకం మొత్తం రూపాయలలో" min="0" step="0.01" value="0" oninput="updateCalc()">
       </div>
 
-      <div class="form-group">
+      <div class="g">
         <label>గమనికలు</label>
-        <input id="f-notes" type="text" placeholder="అదనపు సమాచారం (ఐచ్ఛికం)">
+        <input id="fnotes" type="text" placeholder="అదనపు సమాచారం (ఐచ్ఛికం)">
       </div>
 
       <!-- LIVE CALC -->
-      <div class="form-group full">
-        <label>మొత్తం లెక్క (లైవ్ గణన)</label>
-        <div class="calc-box">
-          <div class="calc-item">
-            <span class="lbl">మొత్తం బరువు<br>(బస్తాలు×100 + కిలోలు)</span>
-            <span class="val" id="c-weight">0 కిలోలు</span>
+      <div class="g full">
+        <label>మొత్తం లెక్క (లైవ్)</label>
+        <div class="cbox">
+          <div class="ci">
+            <span class="lb">మొత్తం బరువు<br>(బస్తాలు×కిలో+అదనపు)</span>
+            <span class="vl" id="cw">0 కిలోలు</span>
           </div>
-          <div class="calc-div">×</div>
-          <div class="calc-item">
-            <span class="lbl">రేటు<br>(₹/కిలో)</span>
-            <span class="val" id="c-rate">—</span>
+          <div class="cdv">×</div>
+          <div class="ci">
+            <span class="lb">రేటు (₹/కిలో)</span>
+            <span class="vl" id="cr">—</span>
           </div>
-          <div class="calc-div">=</div>
-          <div class="calc-item">
-            <span class="lbl">స్థూల మొత్తం</span>
-            <span class="val" id="c-gross">₹0.00</span>
+          <div class="cdv">=</div>
+          <div class="ci">
+            <span class="lb">స్థూల మొత్తం</span>
+            <span class="vl" id="cg">₹0.00</span>
           </div>
-          <div class="calc-div">−</div>
-          <div class="calc-item">
-            <span class="lbl">వాడకం</span>
-            <span class="val" id="c-vadakam" style="color:var(--error)">₹0.00</span>
+          <div class="cdv">−</div>
+          <div class="ci">
+            <span class="lb">వాడకం</span>
+            <span class="vl" id="cv" style="color:var(--err)">₹0.00</span>
           </div>
-          <div class="calc-div">=</div>
-          <div class="total-box">
-            <div class="lbl">చెల్లింపు మొత్తం</div>
-            <div class="val" id="c-total">₹ 0.00</div>
+          <div class="cdv">=</div>
+          <div class="ctot">
+            <div class="lb">చెల్లింపు మొత్తం</div>
+            <div class="vl" id="ct">₹ 0.00</div>
           </div>
         </div>
       </div>
 
     </div>
-    <div class="form-actions">
-      <button class="btn btn-primary" id="btn-add" onclick="addRecord()">✅ నమోదు జోడించు</button>
-      <button class="btn btn-export"  onclick="exportToExcel()">📥 Excel డౌన్లోడ్</button>
-      <button class="btn btn-clear"   onclick="clearForm()">🔄 క్లియర్</button>
+    <div class="fa">
+      <button class="btn bprim" id="badd" onclick="addRecord()">✅ నమోదు జోడించు</button>
+      <button class="btn bexp"  onclick="exportAll()">📥 Excel డౌన్లోడ్</button>
+      <button class="btn bclr"  onclick="clrForm()">🔄 క్లియర్</button>
     </div>
   </div>
 </div>
 </div>
 
-<!-- ═══════════ TAB 2: ALL RECORDS ═══════════ -->
-<div class="tab-pane" id="tab-records">
-
-  <!-- FILTER BAR -->
-  <div class="filter-bar">
-    <div class="form-group" style="margin:0">
+<!-- ══════════ TAB 2: ALL RECORDS ══════════ -->
+<div class="tp" id="t2">
+  <div class="fbar">
+    <div class="g" style="margin:0">
       <label>తేదీ నుండి</label>
-      <input type="date" id="flt-from" onchange="applyFilter()">
+      <input type="date" id="ff" onchange="doFilter()">
     </div>
-    <div class="form-group" style="margin:0">
+    <div class="g" style="margin:0">
       <label>తేదీ వరకు</label>
-      <input type="date" id="flt-to" onchange="applyFilter()">
+      <input type="date" id="ft" onchange="doFilter()">
     </div>
-    <div class="form-group" style="margin:0">
+    <div class="g" style="margin:0">
       <label>గ్రామం</label>
-      <select id="flt-village" onchange="applyFilter()">
+      <select id="fv" onchange="doFilter()">
         <option value="">అన్ని గ్రామాలు</option>
         <option>వీలుపర్తి</option><option>వేపాడ</option><option>వల్లంపూడి</option>
         <option>వెల్దాం</option><option>దబ్బిరాజు పేట</option><option>నల్లబిల్లి</option>
@@ -334,54 +333,55 @@ input.err,select.err{border-color:var(--error);}
         <option>సింగవరం</option><option>బాణాది</option>
       </select>
     </div>
-    <button class="btn btn-clear" onclick="clearFilter()" style="height:42px;padding:0 16px">🔄 క్లియర్</button>
+    <button class="btn bclr" onclick="clrFilter()" style="height:42px;padding:0 14px">🔄 క్లియర్</button>
   </div>
 
-  <!-- FILTER SUMMARY -->
-  <div class="filter-summary" id="filter-summary" style="display:none">
-    <div class="fs-item"><div class="fs-lbl">ఫిల్టర్ నమోదులు</div><div class="fs-val" id="fs-count">0</div></div>
-    <div class="fs-item"><div class="fs-lbl">మొత్తం బరువు</div><div class="fs-val" id="fs-weight">0 కిలోలు</div></div>
-    <div class="fs-item"><div class="fs-lbl">మొత్తం వాడకం</div><div class="fs-val" id="fs-vadakam">₹0</div></div>
-    <div class="fs-item"><div class="fs-lbl">మొత్తం చెల్లింపు</div><div class="fs-val" id="fs-total">₹0</div></div>
+  <div class="fsum" id="fsum" style="display:none">
+    <div class="fi"><div class="fl">నమోదులు</div><div class="fv" id="fsc">0</div></div>
+    <div class="fi"><div class="fl">మొత్తం బరువు</div><div class="fv" id="fsw">0 కిలోలు</div></div>
+    <div class="fi"><div class="fl">మొత్తం వాడకం</div><div class="fv" id="fsv">₹0</div></div>
+    <div class="fi"><div class="fl">మొత్తం చెల్లింపు</div><div class="fv" id="fst2">₹0</div></div>
+    <div class="fi"><div class="fl">మిగిలిన మొత్తం</div><div class="fv" id="fsr">₹0</div></div>
   </div>
 
   <div class="card">
-    <div class="card-header">
+    <div class="ch">
       <h2>📋 అన్ని నమోదులు</h2>
-      <div class="rh-right">
-        <span class="badge" id="record-count">0 నమోదులు</span>
-        <button class="btn-sm btn-sm-white" onclick="loadRecords()">🔄 రిఫ్రెష్</button>
-        <button class="btn-sm btn-sm-gold"  onclick="exportToExcel()">📥 Excel</button>
+      <div class="rhr">
+        <span class="badge" id="rcnt">0 నమోదులు</span>
+        <button class="bsm bsw" onclick="loadRecs()">🔄 రిఫ్రెష్</button>
+        <button class="bsm bsg" onclick="exportAll()">📥 Excel</button>
       </div>
     </div>
-    <div class="table-wrap">
+    <div class="tw">
       <table>
         <thead><tr>
           <th>#</th><th>రైతు పేరు</th><th>పంట</th><th>రకం</th><th>తేదీ</th><th>గ్రామం</th>
-          <th>బస్తాలు</th><th>కిలోలు</th><th>మొత్తం బరువు</th><th>రేటు(₹/కిలో)</th>
-          <th>స్థూల(₹)</th><th>వాడకం(₹)</th><th>చెల్లింపు(₹)</th><th>స్థితి</th><th>తొలగించు</th>
+          <th>బస్తాలు</th><th>అద.కిలోలు</th><th>మొత్తం బరువు</th><th>రేటు</th>
+          <th>స్థూల(₹)</th><th>వాడకం(₹)</th><th>నికర(₹)</th>
+          <th>చెల్లించిన(₹)</th><th>మిగిలిన(₹)</th><th>స్థితి</th><th>తొలగించు</th>
         </tr></thead>
-        <tbody id="records-body">
-          <tr><td colspan="15"><div class="empty-state"><div class="icon">⏳</div><div>లోడ్ అవుతోంది…</div></div></td></tr>
+        <tbody id="rbody">
+          <tr><td colspan="17"><div class="emp"><div class="ico">⏳</div><div>లోడ్ అవుతోంది…</div></div></td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
 
-<!-- ═══════════ TAB 3: FARMER SEARCH ═══════════ -->
-<div class="tab-pane" id="tab-farmer">
+<!-- ══════════ TAB 3: FARMER SEARCH ══════════ -->
+<div class="tp" id="t3">
 <div class="card">
-  <div class="card-header"><h2>👤 రైతు వివరాలు వెతకండి</h2></div>
-  <div class="card-body">
-    <div class="search-box">
-      <div class="form-group" style="margin:0">
-        <label>రైతు పేరు <span class="req">*</span></label>
-        <input id="s-name" type="text" placeholder="రైతు పేరు లేదా అక్షరాలు టైప్ చేయండి" oninput="searchFarmer()">
+  <div class="ch"><h2>👤 రైతు వివరాలు వెతకండి</h2></div>
+  <div class="cb">
+    <div class="sbox">
+      <div class="g" style="margin:0">
+        <label>రైతు పేరు <span class="r">*</span></label>
+        <input id="sn" type="text" placeholder="రైతు పేరు టైప్ చేయండి…" oninput="searchF()">
       </div>
-      <div class="form-group" style="margin:0">
+      <div class="g" style="margin:0">
         <label>గ్రామం (ఐచ్ఛికం)</label>
-        <select id="s-village" onchange="searchFarmer()">
+        <select id="sv" onchange="searchF()">
           <option value="">అన్ని గ్రామాలు</option>
           <option>వీలుపర్తి</option><option>వేపాడ</option><option>వల్లంపూడి</option>
           <option>వెల్దాం</option><option>దబ్బిరాజు పేట</option><option>నల్లబిల్లి</option>
@@ -389,429 +389,496 @@ input.err,select.err{border-color:var(--error);}
           <option>సింగవరం</option><option>బాణాది</option>
         </select>
       </div>
-      <button class="btn btn-primary" onclick="searchFarmer()" style="height:44px;padding:0 18px;align-self:end">🔍 వెతకు</button>
+      <button class="btn bprim" onclick="searchF()" style="height:44px;padding:0 16px;align-self:end">🔍 వెతకు</button>
     </div>
-    <div id="farmer-results">
-      <div class="empty-state"><div class="icon">🔍</div><div>రైతు పేరు నమోదు చేసి వెతకండి.</div></div>
-    </div>
+    <div id="fres"><div class="emp"><div class="ico">🔍</div><div>రైతు పేరు నమోదు చేసి వెతకండి.</div></div></div>
   </div>
 </div>
 </div>
 
-<!-- ═══════════ TAB 4: PAID RECORDS ═══════════ -->
-<div class="tab-pane" id="tab-paid">
-  <div class="paid-banner">
-    <div class="icon">✅</div>
-    <p>ఇక్కడ చెల్లింపు పూర్తయిన రైతుల నమోదులు చూపించబడతాయి. రైతు వివరాలు టాబ్‌లో చెల్లింపు స్థితి మార్చవచ్చు.</p>
+<!-- ══════════ TAB 4: PAID RECORDS ══════════ -->
+<div class="tp" id="t4">
+  <div class="pbanner">
+    <div style="font-size:26px">✅</div>
+    <p>ఇక్కడ చెల్లింపు పూర్తి లేదా పాక్షికంగా జరిగిన నమోదులు ఉంటాయి. రైతు వివరాలు టాబ్‌లో చెల్లింపు నమోదు చేయవచ్చు.</p>
   </div>
   <div class="card">
-    <div class="card-header">
-      <h2>✅ చెల్లింపు పూర్తయిన నమోదులు</h2>
-      <div class="rh-right">
-        <span class="badge" id="paid-count">0 నమోదులు</span>
-        <button class="btn-sm btn-sm-white" onclick="loadRecords()">🔄 రిఫ్రెష్</button>
-        <button class="btn-sm btn-sm-gold"  onclick="exportPaidToExcel()">📥 Excel</button>
+    <div class="ch">
+      <h2>✅ చెల్లింపు నమోదులు</h2>
+      <div class="rhr">
+        <span class="badge" id="pcnt">0 నమోదులు</span>
+        <button class="bsm bsw" onclick="loadRecs()">🔄 రిఫ్రెష్</button>
+        <button class="bsm bsg" onclick="exportPaid()">📥 Excel</button>
       </div>
     </div>
-    <div class="table-wrap">
+    <div class="tw">
       <table>
         <thead><tr>
           <th>#</th><th>రైతు పేరు</th><th>పంట</th><th>తేదీ</th><th>గ్రామం</th>
-          <th>మొత్తం బరువు</th><th>వాడకం(₹)</th><th>చెల్లింపు(₹)</th><th>చెల్లింపు తేదీ</th>
+          <th>మొత్తం బరువు</th><th>నికర(₹)</th><th>చెల్లించిన(₹)</th><th>మిగిలిన(₹)</th><th>స్థితి</th><th>చెల్లింపు తేదీ</th>
         </tr></thead>
-        <tbody id="paid-body">
-          <tr><td colspan="9"><div class="empty-state"><div class="icon">⏳</div><div>లోడ్ అవుతోంది…</div></div></td></tr>
+        <tbody id="pbody">
+          <tr><td colspan="11"><div class="emp"><div class="ico">⏳</div><div>లోడ్ అవుతోంది…</div></div></td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
 
-</div><!-- /container -->
+</div><!-- /wrap -->
 
 <!-- PAYMENT MODAL -->
-<div class="modal-overlay" id="pay-modal">
-  <div class="modal">
-    <h3>💰 చెల్లింపు నిర్ధారించండి</h3>
-    <p id="pay-modal-name">ఈ రైతుకు చెల్లింపు పూర్తయిందా?</p>
-    <div class="modal-amount">
-      <div class="lbl">చెల్లింపు మొత్తం</div>
-      <div class="amt" id="pay-modal-amount">₹ 0.00</div>
+<div class="movl" id="pmod">
+  <div class="mo">
+    <h3>💰 చెల్లింపు నమోదు చేయండి</h3>
+    <p id="pmname">రైతు పేరు</p>
+
+    <div class="mamt">
+      <div class="ml">మొత్తం నికర మొత్తం</div>
+      <div class="ma" id="pmtotal">₹ 0.00</div>
+      <div class="mr" id="pmremain"></div>
     </div>
-    <div class="modal-actions">
-      <button class="btn btn-paid"  id="pay-confirm-btn" onclick="confirmPayment()">✅ అవును, చెల్లింపు అయింది</button>
-      <button class="btn btn-clear" onclick="closePayModal()">రద్దు</button>
+
+    <!-- Toggle: Full / Part -->
+    <div class="moswitch">
+      <button class="msw sel" id="msw-full" onclick="setPayMode('full')">పూర్తి చెల్లింపు</button>
+      <button class="msw"     id="msw-part" onclick="setPayMode('part')">పాక్షిక చెల్లింపు</button>
+    </div>
+
+    <!-- Part payment input (hidden by default) -->
+    <div class="minp" id="partInput" style="display:none">
+      <label>ఎంత మొత్తం చెల్లిస్తున్నారు? (₹) <span class="r">*</span></label>
+      <input type="number" id="payAmt" min="0" step="0.01" placeholder="చెల్లింపు మొత్తం నమోదు చేయండి">
+      <div class="hint" id="payHint"></div>
+    </div>
+
+    <div class="moacts">
+      <button class="btn bpay" id="pconfbtn" onclick="confirmPay()">✅ చెల్లింపు నిర్ధారించు</button>
+      <button class="btn bclr" onclick="closeMod()">రద్దు</button>
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast"><span id="t-icon">✅</span><span id="t-msg">విజయవంతం</span></div>
+<div class="toast" id="toast"><span id="tico">✅</span><span id="tmsg">విజయవంతం</span></div>
 
 <script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvd54CTaz4Vkq3PPGKUj3estgYwwhvHpagPV0wBycYL9f8F9Uxpnk19Llr6YpNe0tJXw/exec';
+// ─────────────────────────────────────────────────
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzW7anYstZ3f9RJqBd-_rFZVtmCuKylqVua9ytZW_EnDiLbyixDSqyin_k-9lVia50JWw/exec';
 let records = [];
-let pendingPayKey = null; // stores "farmerName||village" for payment
+let payCtx  = null; // { key, totalNet, remainAmt }
+let payMode = 'full';
 
-// ── INIT ─────────────────────────────────────────────
-document.getElementById('f-date').value = today();
-setStatus('spin','అనుసంధానిస్తోంది…');
-loadRecords();
+// KG per bag by crop
+const KG_PER_BAG = { 'వరి': 84 };
+const DEFAULT_KG  = 100;
 
-// ── TABS ─────────────────────────────────────────────
-function switchTab(id) {
-  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.getElementById('btn-'+id).classList.add('active');
+function getKgPerBag(crop) {
+  return KG_PER_BAG[crop] || DEFAULT_KG;
 }
 
-// ── DROPDOWN + OTHER INPUT ────────────────────────────
-function toggleOther(selId, otherId) {
-  const sel = document.getElementById(selId);
-  const oth = document.getElementById(otherId);
-  if (sel.value === 'ఇతర') { oth.classList.add('show'); oth.focus(); }
+// ── INIT ────────────────────────────────────────
+document.getElementById('fdt').value = toISO();
+setStatus('spin','అనుసంధానిస్తోంది…');
+loadRecs();
+
+// ── TABS ────────────────────────────────────────
+function sw(id) {
+  document.querySelectorAll('.tp').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('b'+id).classList.add('active');
+}
+
+// ── DROPDOWN OTHERS ─────────────────────────────
+function togOth(sid, oid) {
+  const sel = document.getElementById(sid);
+  const oth = document.getElementById(oid);
+  if (sel.value==='ఇతర') { oth.classList.add('show'); oth.focus(); }
   else { oth.classList.remove('show'); oth.value=''; }
 }
-
-function getFieldValue(selId, otherId) {
-  const sel = document.getElementById(selId);
-  if (sel.value === 'ఇతర') return document.getElementById(otherId).value.trim();
-  return sel.value;
+function gfv(sid, oid) {
+  const s = document.getElementById(sid);
+  return s.value==='ఇతర' ? document.getElementById(oid).value.trim() : s.value;
 }
 
-// ── LOAD RECORDS ─────────────────────────────────────
-async function loadRecords() {
+// ── LOAD RECORDS ────────────────────────────────
+async function loadRecs() {
   setStatus('spin','లోడ్ అవుతోంది…');
-  showSkeletons();
+  showSkel();
   try {
-    const res  = await fetch(`${SCRIPT_URL}?action=get`);
-    const data = await res.json();
+    const r    = await fetch(SCRIPT_URL + '?action=get');
+    const data = await r.json();
     if (!data.success) throw new Error(data.error);
     records = data.records || [];
-    renderTable(records);
-    renderPaidTable();
-    setStatus('ok',`అనుసంధానించబడింది · ${records.length} నమోదులు`);
+    renderTbl(records);
+    renderPaid();
+    setStatus('ok','అనుసంధానించబడింది · '+records.length+' నమోదులు');
   } catch(e) {
     setStatus('err','అనుసంధానం విఫలమైంది');
     toast('❌','డేటా లోడ్ కాలేదు: '+e.message,'fail');
   }
 }
 
-// ── ADD RECORD ────────────────────────────────────────
+// ── ADD RECORD ───────────────────────────────────
 async function addRecord() {
-  const village = getFieldValue('f-village-sel','f-village-other');
-  const crop    = getFieldValue('f-crop-sel','f-crop-other');
+  const village = gfv('fvs','fvo');
+  const crop    = gfv('fcs','fco');
 
-  // validate
-  const checks = [
-    ['f-name', document.getElementById('f-name').value.trim()],
-    ['f-village-sel', village],
-    ['f-crop-sel', crop],
-    ['f-variety', document.getElementById('f-variety').value.trim()],
-    ['f-date', document.getElementById('f-date').value],
-    ['f-bags', document.getElementById('f-bags').value],
-    ['f-rate', document.getElementById('f-rate').value],
+  const chks = [
+    ['fn',   document.getElementById('fn').value.trim()],
+    ['fvs',  village],
+    ['fcs',  crop],
+    ['fvar', document.getElementById('fvar').value.trim()],
+    ['fdt',  document.getElementById('fdt').value],
+    ['fbags',document.getElementById('fbags').value],
+    ['frate',document.getElementById('frate').value],
   ];
-  let valid = true;
-  checks.forEach(([id,val])=>{
-    const el = document.getElementById(id);
-    if (!val) { el && el.classList.add('err'); valid=false; }
-    else { el && el.classList.remove('err'); }
-  });
-  if (!valid) { toast('⚠️','అన్ని తప్పనిసరి వివరాలు నమోదు చేయండి','warn'); return; }
+  let ok = true;
+  chks.forEach(([id,v])=>{ const el=document.getElementById(id); if(!v){el&&el.classList.add('er');ok=false;}else{el&&el.classList.remove('er');} });
+  if (!ok) { toast('⚠️','అన్ని తప్పనిసరి వివరాలు నమోదు చేయండి','warn'); return; }
 
-  const btn = document.getElementById('btn-add');
-  btn.disabled=true; btn.innerHTML='⏳ సేవ్ అవుతోంది…';
+  const btn=document.getElementById('badd');
+  btn.disabled=true; btn.textContent='⏳ సేవ్ అవుతోంది…';
 
-  const bags    = parseInt(document.getElementById('f-bags').value)    || 0;
-  const kilos   = parseFloat(document.getElementById('f-kilos').value) || 0;
-  const rate    = parseFloat(document.getElementById('f-rate').value)  || 0;
-  const vadakam = parseFloat(document.getElementById('f-vadakam').value)||0;
-  const weight  = bags * 100 + kilos;
-  const gross   = weight * rate;
-  const net     = gross - vadakam;
+  const bags     = parseInt(document.getElementById('fbags').value)  || 0;
+  const kilos    = parseFloat(document.getElementById('fkilos').value)||0;
+  const rate     = parseFloat(document.getElementById('frate').value) ||0;
+  const vadakam  = parseFloat(document.getElementById('fvad').value)  ||0;
+  const kgPerBag = getKgPerBag(crop);
+  const weight   = bags * kgPerBag + kilos;
+  const gross    = weight * rate;
+  const net      = gross - vadakam;
 
-  const params = new URLSearchParams({
-    action:'add',
-    farmerName: document.getElementById('f-name').value.trim(),
-    village, crop,
-    variety:  document.getElementById('f-variety').value.trim(),
-    date:     formatDate(document.getElementById('f-date').value),
-    bags, kilos, weight,
-    rate, vadakam,
-    gross:    gross.toFixed(2),
-    total:    net.toFixed(2),
-    notes:    document.getElementById('f-notes').value.trim(),
-    status:   'చెల్లింపు పెండింగ్'
-  });
+  // Build params manually to avoid any encoding issues
+  const p = [
+    'action=add',
+    'farmerName='+encodeURIComponent(document.getElementById('fn').value.trim()),
+    'village='+encodeURIComponent(village),
+    'crop='+encodeURIComponent(crop),
+    'variety='+encodeURIComponent(document.getElementById('fvar').value.trim()),
+    'date='+encodeURIComponent(fmtDate(document.getElementById('fdt').value)),
+    'bags='+bags,
+    'kilos='+kilos,
+    'kgPerBag='+kgPerBag,
+    'weight='+weight,
+    'rate='+rate,
+    'vadakam='+vadakam,
+    'gross='+gross.toFixed(2),
+    'total='+net.toFixed(2),
+    'notes='+encodeURIComponent(document.getElementById('fnotes').value.trim()),
+    'status='+encodeURIComponent('చెల్లింపు పెండింగ్')
+  ].join('&');
 
   try {
-    const res  = await fetch(`${SCRIPT_URL}?${params}`);
+    const res  = await fetch(SCRIPT_URL + '?' + p);
     const data = await res.json();
     if (!data.success) throw new Error(data.error);
     toast('✅','నమోదు విజయవంతంగా సేవ్ అయింది!',true);
-    clearForm();
-    loadRecords();
+    clrForm();
+    loadRecs();
   } catch(e) {
     toast('❌','సేవ్ కాలేదు: '+e.message,'fail');
   } finally {
-    btn.disabled=false; btn.innerHTML='✅ నమోదు జోడించు';
+    btn.disabled=false; btn.textContent=''; btn.innerHTML='✅ నమోదు జోడించు';
   }
 }
 
-// ── DELETE ────────────────────────────────────────────
-async function deleteRecord(serial) {
+// ── DELETE ───────────────────────────────────────
+async function delRec(serial) {
   if (!confirm('ఈ నమోదు తొలగించాలా?')) return;
   try {
-    const res  = await fetch(`${SCRIPT_URL}?action=delete&id=${serial}`);
-    const data = await res.json();
+    const r    = await fetch(SCRIPT_URL+'?action=delete&id='+serial);
+    const data = await r.json();
     if (!data.success) throw new Error(data.error);
     toast('🗑️','నమోదు తొలగించబడింది',true);
-    loadRecords();
+    loadRecs();
   } catch(e) {
-    toast('❌','తొలగించడం విఫలమైంది','fail');
+    toast('❌','తొలగించడం విఫలమైంది: '+e.message,'fail');
   }
 }
 
-// ── PAYMENT FLOW ──────────────────────────────────────
-function openPayModal(key, totalAmt) {
-  pendingPayKey = key;
+// ── PAYMENT MODAL ────────────────────────────────
+function openPayMod(key, totalNet, remainAmt) {
+  payCtx = { key, totalNet: Number(totalNet), remainAmt: Number(remainAmt) };
   const parts = key.split('||');
-  document.getElementById('pay-modal-name').textContent = `రైతు: ${parts[0]} (${parts[1]})`;
-  document.getElementById('pay-modal-amount').textContent = '₹ ' + Number(totalAmt).toLocaleString('te-IN',{minimumFractionDigits:2});
-  document.getElementById('pay-modal').classList.add('show');
+  document.getElementById('pmname').textContent = 'రైతు: '+parts[0]+' ('+parts[1]+')';
+  document.getElementById('pmtotal').textContent = '₹ '+Number(totalNet).toLocaleString('te-IN',{minimumFractionDigits:2});
+  document.getElementById('pmremain').textContent = 'మిగిలిన మొత్తం: ₹ '+Number(remainAmt).toLocaleString('te-IN',{minimumFractionDigits:2});
+  document.getElementById('payAmt').value = '';
+  document.getElementById('payHint').textContent = 'గరిష్టం: ₹ '+Number(remainAmt).toLocaleString('te-IN',{minimumFractionDigits:2});
+  setPayMode('full');
+  document.getElementById('pmod').classList.add('show');
 }
-function closePayModal() {
-  document.getElementById('pay-modal').classList.remove('show');
-  pendingPayKey = null;
+function closeMod() {
+  document.getElementById('pmod').classList.remove('show');
+  payCtx = null;
+}
+function setPayMode(mode) {
+  payMode = mode;
+  document.getElementById('msw-full').classList.toggle('sel', mode==='full');
+  document.getElementById('msw-part').classList.toggle('sel', mode==='part');
+  document.getElementById('partInput').style.display = mode==='part' ? 'block' : 'none';
+  if (mode==='full') {
+    document.getElementById('pconfbtn').textContent = '✅ పూర్తి చెల్లింపు నిర్ధారించు';
+  } else {
+    document.getElementById('pconfbtn').textContent = '✅ పాక్షిక చెల్లింపు నిర్ధారించు';
+  }
 }
 
-async function confirmPayment() {
-  if (!pendingPayKey) return;
-  const btn = document.getElementById('pay-confirm-btn');
-  btn.disabled=true; btn.innerHTML='⏳ అప్‌డేట్ అవుతోంది…';
+async function confirmPay() {
+  if (!payCtx) return;
+  const btn = document.getElementById('pconfbtn');
+  btn.disabled = true;
 
-  const parts = pendingPayKey.split('||');
-  const params = new URLSearchParams({
-    action: 'markPaid',
-    farmerName: parts[0],
-    village: parts[1],
-    paidDate: formatDate(today())
-  });
+  const parts    = payCtx.key.split('||');
+  const paidDate = fmtDate(toISO());
+
+  let action  = 'markPaid';
+  let extra   = '';
+
+  if (payMode === 'part') {
+    const amt = parseFloat(document.getElementById('payAmt').value) || 0;
+    if (amt <= 0) { toast('⚠️','చెల్లింపు మొత్తం నమోదు చేయండి','warn'); btn.disabled=false; return; }
+    if (amt > payCtx.remainAmt + 0.01) {
+      toast('⚠️','మిగిలిన మొత్తం కంటే ఎక్కువ చెల్లించలేరు','warn'); btn.disabled=false; return;
+    }
+    action = 'partPayment';
+    extra  = '&payAmount='+amt;
+  }
+
+  const p = 'action='+action
+    +'&farmerName='+encodeURIComponent(parts[0])
+    +'&village='+encodeURIComponent(parts[1])
+    +'&paidDate='+encodeURIComponent(paidDate)
+    + extra;
 
   try {
-    const res  = await fetch(`${SCRIPT_URL}?${params}`);
-    const data = await res.json();
+    const r    = await fetch(SCRIPT_URL + '?' + p);
+    const data = await r.json();
     if (!data.success) throw new Error(data.error);
-    toast('✅','చెల్లింపు స్థితి అప్‌డేట్ అయింది!',true);
-    closePayModal();
-    loadRecords();
+    const msg = payMode==='full' ? 'పూర్తి చెల్లింపు నమోదు అయింది! ✅' : 'పాక్షిక చెల్లింపు నమోదు అయింది! ✅';
+    toast('💰', msg, true);
+    closeMod();
+    loadRecs();
+    // Re-run search to refresh farmer card
+    if (document.getElementById('sn').value) searchF();
   } catch(e) {
     toast('❌','అప్‌డేట్ కాలేదు: '+e.message,'fail');
   } finally {
-    btn.disabled=false; btn.innerHTML='✅ అవును, చెల్లింపు అయింది';
+    btn.disabled = false;
   }
 }
 
-// ── RENDER ALL RECORDS TABLE ──────────────────────────
-function renderTable(rows) {
-  const tbody = document.getElementById('records-body');
-  document.getElementById('record-count').textContent = rows.length+' నమోదులు';
+// ── RENDER ALL RECORDS TABLE ─────────────────────
+function renderTbl(rows) {
+  const tbody = document.getElementById('rbody');
+  document.getElementById('rcnt').textContent = rows.length+' నమోదులు';
   if (!rows.length) {
-    tbody.innerHTML=`<tr><td colspan="15"><div class="empty-state"><div class="icon">📝</div><div>నమోదులు లేవు.</div></div></td></tr>`;
+    tbody.innerHTML='<tr><td colspan="17"><div class="emp"><div class="ico">📝</div><div>నమోదులు లేవు.</div></div></td></tr>';
     return;
   }
   tbody.innerHTML = rows.map(r=>{
-    const gross   = Number(r.gross||0);
-    const vadakam = Number(r.vadakam||0);
-    const net     = Number(r.total||0);
-    const weight  = Number(r.weight||0);
-    const kilos   = Number(r.kilos||0);
-    const isPaid  = String(r.status||'').includes('చెల్లింపు అయింది');
-    const statusBadge = isPaid
-      ? `<span class="badge-paid">✅ చెల్లించారు</span>`
-      : `<span class="badge-unpaid">⏳ పెండింగ్</span>`;
-    return `<tr style="${isPaid?'opacity:.7':''}">
+    const st = String(r.status||'');
+    const badge = st.includes('పూర్తయింది')
+      ? '<span class="bpaid">✅ పూర్తి</span>'
+      : st.includes('పాక్షిక')
+      ? '<span class="bpart">⚡ పాక్షిక</span>'
+      : '<span class="bunpaid">⏳ పెండింగ్</span>';
+    return `<tr style="${st.includes('పూర్తయింది')?'opacity:.72':''}">
       <td style="color:#999;font-size:11px">${r.serial}</td>
       <td><strong>${r.farmerName}</strong></td>
       <td>${r.crop}</td><td>${r.variety}</td><td>${r.date}</td><td>${r.village}</td>
-      <td>${r.bags||0}</td><td>${kilos}</td>
-      <td>${weight.toLocaleString('te-IN')} కిలోలు</td>
+      <td>${r.bags||0}</td><td>${r.kilos||0}</td>
+      <td>${Number(r.weight||0).toLocaleString('te-IN')} కిలోలు</td>
       <td>₹${Number(r.rate||0).toLocaleString('te-IN')}</td>
-      <td>₹${gross.toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
-      <td style="color:var(--error)">₹${vadakam.toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
-      <td><strong style="color:var(--green-dark)">₹${net.toLocaleString('te-IN',{minimumFractionDigits:2})}</strong></td>
-      <td>${statusBadge}</td>
-      <td><button class="btn-delete" onclick="deleteRecord(${r.serial})">🗑️</button></td>
+      <td>₹${Number(r.gross||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
+      <td style="color:var(--err)">₹${Number(r.vadakam||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
+      <td><strong>₹${Number(r.total||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</strong></td>
+      <td style="color:#1565c0">₹${Number(r.paidAmt||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
+      <td style="color:${Number(r.remainAmt||0)>0?'var(--err)':'#2e7d32'}"><strong>₹${Number(r.remainAmt||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</strong></td>
+      <td>${badge}</td>
+      <td><button class="bdel" onclick="delRec(${r.serial})">🗑️</button></td>
     </tr>`;
   }).join('');
 }
 
-function renderPaidTable() {
-  const paid  = records.filter(r=>String(r.status||'').includes('చెల్లింపు అయింది'));
-  const tbody = document.getElementById('paid-body');
-  document.getElementById('paid-count').textContent = paid.length+' నమోదులు';
+function renderPaid() {
+  const paid  = records.filter(r=>!String(r.status||'').includes('పెండింగ్'));
+  const tbody = document.getElementById('pbody');
+  document.getElementById('pcnt').textContent = paid.length+' నమోదులు';
   if (!paid.length) {
-    tbody.innerHTML=`<tr><td colspan="9"><div class="empty-state"><div class="icon">📭</div><div>చెల్లింపు అయిన నమోదులు లేవు.</div></div></td></tr>`;
+    tbody.innerHTML='<tr><td colspan="11"><div class="emp"><div class="ico">📭</div><div>చెల్లింపు నమోదులు లేవు.</div></div></td></tr>';
     return;
   }
-  tbody.innerHTML = paid.map(r=>`<tr>
-    <td style="color:#999;font-size:11px">${r.serial}</td>
-    <td><strong>${r.farmerName}</strong></td>
-    <td>${r.crop}</td><td>${r.date}</td><td>${r.village}</td>
-    <td>${Number(r.weight||0).toLocaleString('te-IN')} కిలోలు</td>
-    <td style="color:var(--error)">₹${Number(r.vadakam||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
-    <td><strong style="color:#1565c0">₹${Number(r.total||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</strong></td>
-    <td>${r.paidDate||'—'}</td>
-  </tr>`).join('');
+  tbody.innerHTML = paid.map(r=>{
+    const st = String(r.status||'');
+    const badge = st.includes('పూర్తయింది') ? '<span class="bpaid">✅ పూర్తి</span>' : '<span class="bpart">⚡ పాక్షిక</span>';
+    return `<tr>
+      <td style="color:#999;font-size:11px">${r.serial}</td>
+      <td><strong>${r.farmerName}</strong></td>
+      <td>${r.crop}</td><td>${r.date}</td><td>${r.village}</td>
+      <td>${Number(r.weight||0).toLocaleString('te-IN')} కిలోలు</td>
+      <td>₹${Number(r.total||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
+      <td style="color:#1565c0">₹${Number(r.paidAmt||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
+      <td style="color:${Number(r.remainAmt||0)>0?'var(--err)':'#2e7d32'}">₹${Number(r.remainAmt||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
+      <td>${badge}</td>
+      <td>${r.paidDate||'—'}</td>
+    </tr>`;
+  }).join('');
 }
 
-function showSkeletons() {
-  document.getElementById('records-body').innerHTML =
-    Array(3).fill(0).map(()=>`<tr>${Array(15).fill(0).map(()=>`<td><span class="skeleton" style="width:${50+Math.random()*40}%;height:12px">&nbsp;</span></td>`).join('')}</tr>`).join('');
+function showSkel() {
+  document.getElementById('rbody').innerHTML =
+    Array(3).fill(0).map(()=>'<tr>'+Array(17).fill(0).map(()=>'<td><span class="sk" style="width:'+(50+Math.random()*40)+'%;height:12px">&nbsp;</span></td>').join('')+'</tr>').join('');
 }
 
-// ── FILTER ────────────────────────────────────────────
-function applyFilter() {
-  const from    = document.getElementById('flt-from').value;
-  const to      = document.getElementById('flt-to').value;
-  const village = document.getElementById('flt-village').value;
+// ── FILTER ───────────────────────────────────────
+function doFilter() {
+  const from = document.getElementById('ff').value;
+  const to   = document.getElementById('ft').value;
+  const vil  = document.getElementById('fv').value;
 
-  let filtered = records.filter(r => {
-    // parse dd/mm/yyyy
+  const filtered = records.filter(r=>{
     let pass = true;
-    if (from || to) {
-      const parts = String(r.date).split('/');
-      if (parts.length===3) {
-        const rDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
-        if (from && rDate < from) pass = false;
-        if (to   && rDate > to)   pass = false;
+    if (from||to) {
+      const pts = String(r.date).split('/');
+      if (pts.length===3) {
+        const rd = pts[2]+'-'+pts[1]+'-'+pts[0];
+        if (from && rd<from) pass=false;
+        if (to   && rd>to)   pass=false;
       }
     }
-    if (village && r.village !== village) pass = false;
+    if (vil && r.village!==vil) pass=false;
     return pass;
   });
 
-  renderTable(filtered);
-
-  const hasFilter = from||to||village;
-  const summaryEl = document.getElementById('filter-summary');
-  if (hasFilter) {
-    summaryEl.style.display='flex';
-    const totW = filtered.reduce((s,r)=>s+Number(r.weight||0),0);
-    const totV = filtered.reduce((s,r)=>s+Number(r.vadakam||0),0);
-    const totN = filtered.reduce((s,r)=>s+Number(r.total||0),0);
-    document.getElementById('fs-count').textContent  = filtered.length;
-    document.getElementById('fs-weight').textContent = totW.toLocaleString('te-IN')+' కిలోలు';
-    document.getElementById('fs-vadakam').textContent= '₹'+totV.toLocaleString('te-IN',{minimumFractionDigits:2});
-    document.getElementById('fs-total').textContent  = '₹'+totN.toLocaleString('te-IN',{minimumFractionDigits:2});
-  } else {
-    summaryEl.style.display='none';
-  }
+  renderTbl(filtered);
+  const has = from||to||vil;
+  const el  = document.getElementById('fsum');
+  if (has) {
+    el.style.display='flex';
+    const tW = filtered.reduce((s,r)=>s+Number(r.weight||0),0);
+    const tV = filtered.reduce((s,r)=>s+Number(r.vadakam||0),0);
+    const tN = filtered.reduce((s,r)=>s+Number(r.total||0),0);
+    const tR = filtered.reduce((s,r)=>s+Number(r.remainAmt||0),0);
+    document.getElementById('fsc').textContent  = filtered.length;
+    document.getElementById('fsw').textContent  = tW.toLocaleString('te-IN')+' కిలోలు';
+    document.getElementById('fsv').textContent  = '₹'+tV.toLocaleString('te-IN',{minimumFractionDigits:2});
+    document.getElementById('fst2').textContent = '₹'+tN.toLocaleString('te-IN',{minimumFractionDigits:2});
+    document.getElementById('fsr').textContent  = '₹'+tR.toLocaleString('te-IN',{minimumFractionDigits:2});
+  } else { el.style.display='none'; }
 }
 
-function clearFilter() {
-  document.getElementById('flt-from').value='';
-  document.getElementById('flt-to').value='';
-  document.getElementById('flt-village').value='';
-  document.getElementById('filter-summary').style.display='none';
-  renderTable(records);
+function clrFilter() {
+  ['ff','ft'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('fv').value='';
+  document.getElementById('fsum').style.display='none';
+  renderTbl(records);
 }
 
-// ── FARMER SEARCH ─────────────────────────────────────
-function searchFarmer() {
-  const name    = document.getElementById('s-name').value.trim().toLowerCase();
-  const village = document.getElementById('s-village').value;
-  const el      = document.getElementById('farmer-results');
+// ── FARMER SEARCH ────────────────────────────────
+function searchF() {
+  const name = document.getElementById('sn').value.trim().toLowerCase();
+  const vil  = document.getElementById('sv').value;
+  const el   = document.getElementById('fres');
 
-  if (!name) {
-    el.innerHTML=`<div class="empty-state"><div class="icon">🔍</div><div>రైతు పేరు నమోదు చేసి వెతకండి.</div></div>`;
-    return;
-  }
+  if (!name) { el.innerHTML='<div class="emp"><div class="ico">🔍</div><div>రైతు పేరు నమోదు చేసి వెతకండి.</div></div>'; return; }
 
-  const matched = records.filter(r =>
+  const matched = records.filter(r=>
     String(r.farmerName).toLowerCase().includes(name) &&
-    (!village || r.village === village)
+    (!vil || r.village===vil)
   );
 
   if (!matched.length) {
-    el.innerHTML=`<div class="empty-state"><div class="icon">😔</div><div>"${name}" పేరు గల రైతు నమోదులు కనుగొనబడలేదు.</div></div>`;
+    el.innerHTML='<div class="emp"><div class="ico">😔</div><div>"'+name+'" పేరు గల రైతు కనుగొనబడలేదు.</div></div>';
     return;
   }
 
-  const groups = {};
-  matched.forEach(r=>{
-    const key = r.farmerName+'||'+r.village;
-    if (!groups[key]) groups[key]={farmerName:r.farmerName, village:r.village, rows:[]};
-    groups[key].rows.push(r);
-  });
+  const groups={};
+  matched.forEach(r=>{ const k=r.farmerName+'||'+r.village; if(!groups[k]) groups[k]={farmerName:r.farmerName,village:r.village,rows:[]}; groups[k].rows.push(r); });
 
-  el.innerHTML = Object.values(groups).map(g=>{
-    const totBags   = g.rows.reduce((s,r)=>s+(Number(r.bags)||0),0);
-    const totWeight = g.rows.reduce((s,r)=>s+Number(r.weight||0),0);
-    const totVadakam= g.rows.reduce((s,r)=>s+Number(r.vadakam||0),0);
-    const totNet    = g.rows.reduce((s,r)=>s+Number(r.total||0),0);
-    const key       = g.farmerName+'||'+g.village;
-    const allPaid   = g.rows.every(r=>String(r.status||'').includes('చెల్లింపు అయింది'));
-    const anyPaid   = g.rows.some(r=>String(r.status||'').includes('చెల్లింపు అయింది'));
+  el.innerHTML=Object.values(groups).map(g=>{
+    const tBags = g.rows.reduce((s,r)=>s+(Number(r.bags)||0),0);
+    const tWt   = g.rows.reduce((s,r)=>s+Number(r.weight||0),0);
+    const tVad  = g.rows.reduce((s,r)=>s+Number(r.vadakam||0),0);
+    const tNet  = g.rows.reduce((s,r)=>s+Number(r.total||0),0);
+    const tPaid = g.rows.reduce((s,r)=>s+Number(r.paidAmt||0),0);
+    const tRem  = g.rows.reduce((s,r)=>s+Number(r.remainAmt||0),0);
+    const key   = g.farmerName+'||'+g.village;
+
+    const allPaid  = g.rows.every(r=>String(r.status||'').includes('పూర్తయింది'));
+    const anyPaid  = g.rows.some(r=>!String(r.status||'').includes('పెండింగ్'));
+    const hasPend  = tRem > 0.01;
+
+    const statusBadge = allPaid
+      ? '<span class="bpaid">✅ అన్నీ చెల్లించారు</span>'
+      : anyPaid
+      ? '<span class="bpart">⚡ పాక్షికంగా చెల్లించారు</span>'
+      : '<span class="bunpaid">⏳ చెల్లింపు పెండింగ్</span>';
 
     const rowsHtml = g.rows.map(r=>{
-      const vadakam = Number(r.vadakam||0);
-      const net     = Number(r.total||0);
-      const gross   = Number(r.gross||0);
-      const isPaid  = String(r.status||'').includes('చెల్లింపు అయింది');
-      return `<tr style="${isPaid?'opacity:.65':''}">
+      const st     = String(r.status||'');
+      const sBadge = st.includes('పూర్తయింది')
+        ? '<span class="bpaid">✅ పూర్తి</span>'
+        : st.includes('పాక్షిక')
+        ? '<span class="bpart">⚡ పాక్షిక</span>'
+        : '<span class="bunpaid">⏳ పెండింగ్</span>';
+      return `<tr style="${st.includes('పూర్తయింది')?'opacity:.65':''}">
         <td style="color:#999;font-size:11px">${r.serial}</td>
         <td>${r.date}</td><td>${r.crop}</td><td>${r.variety}</td>
-        <td>${r.bags||0}</td><td>${Number(r.kilos||0)} కిలోలు</td>
-        <td>${Number(r.weight||0).toLocaleString('te-IN')} కిలోలు</td>
+        <td>${r.bags||0}</td><td>${Number(r.kilos||0)} కి</td>
+        <td>${Number(r.weight||0).toLocaleString('te-IN')} కి</td>
         <td>₹${Number(r.rate||0).toLocaleString('te-IN')}</td>
-        <td>₹${gross.toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
-        <td style="color:var(--error)">₹${vadakam.toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
-        <td><strong style="color:var(--green-dark)">₹${net.toLocaleString('te-IN',{minimumFractionDigits:2})}</strong></td>
-        <td>${isPaid?'<span class="badge-paid">✅ చెల్లించారు</span>':'<span class="badge-unpaid">⏳ పెండింగ్</span>'}</td>
+        <td>₹${Number(r.gross||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
+        <td style="color:var(--err)">₹${Number(r.vadakam||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
+        <td><strong>₹${Number(r.total||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</strong></td>
+        <td style="color:#1565c0">₹${Number(r.paidAmt||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
+        <td style="color:${Number(r.remainAmt||0)>0?'var(--err)':'#2e7d32'}">₹${Number(r.remainAmt||0).toLocaleString('te-IN',{minimumFractionDigits:2})}</td>
+        <td>${sBadge}</td>
         <td style="font-size:11px;color:#666">${r.notes||'—'}</td>
       </tr>`;
     }).join('');
 
+    const safeKey = key.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+
     return `
-    <div class="farmer-card">
-      <div class="farmer-card-header">
+    <div class="fc">
+      <div class="fch">
         <div>
-          <div class="fname">🧑‍🌾 ${g.farmerName}</div>
-          <div class="fvillage">📍 ${g.village}</div>
+          <div class="fn">🧑‍🌾 ${g.farmerName}</div>
+          <div class="fv2">📍 ${g.village}</div>
         </div>
-        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-          ${allPaid?'<span class="badge-paid">✅ అన్నీ చెల్లించారు</span>':anyPaid?'<span style="background:#ff8f00;color:#fff;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700">⚡ పాక్షికంగా</span>':'<span class="badge-unpaid">⏳ చెల్లింపు పెండింగ్</span>'}
+        <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
+          ${statusBadge}
           <span class="badge">${g.rows.length} నమోదులు</span>
         </div>
       </div>
 
-      <div class="farmer-stats">
-        <div class="stat-item"><div class="s-lbl">మొత్తం బస్తాలు</div><div class="s-val">${totBags||'—'}</div></div>
-        <div class="stat-item"><div class="s-lbl">మొత్తం బరువు</div><div class="s-val">${totWeight.toLocaleString('te-IN')} కిలోలు</div></div>
-        <div class="stat-item"><div class="s-lbl">మొత్తం వాడకం</div><div class="s-val red">₹${totVadakam.toLocaleString('te-IN',{minimumFractionDigits:2})}</div></div>
-        <div class="stat-item"><div class="s-lbl">చెల్లింపు మొత్తం</div><div class="s-val gold">₹${totNet.toLocaleString('te-IN',{minimumFractionDigits:2})}</div></div>
-        <div class="stat-item"><div class="s-lbl">స్థితి</div><div class="s-val blue">${allPaid?'✅ పూర్తి':anyPaid?'⚡ పాక్షిక':'⏳ పెండింగ్'}</div></div>
+      <div class="fst">
+        <div class="si"><div class="sl">మొత్తం బస్తాలు</div><div class="sv">${tBags||'—'}</div></div>
+        <div class="si"><div class="sl">మొత్తం బరువు</div><div class="sv">${tWt.toLocaleString('te-IN')} కి</div></div>
+        <div class="si"><div class="sl">మొత్తం వాడకం</div><div class="sv rd">₹${tVad.toLocaleString('te-IN',{minimumFractionDigits:2})}</div></div>
+        <div class="si"><div class="sl">నికర మొత్తం</div><div class="sv gd">₹${tNet.toLocaleString('te-IN',{minimumFractionDigits:2})}</div></div>
+        <div class="si"><div class="sl">మిగిలిన మొత్తం</div><div class="sv ${tRem>0?'rd':'bl'}">₹${tRem.toLocaleString('te-IN',{minimumFractionDigits:2})}</div></div>
       </div>
 
-      ${!allPaid ? `
-      <div class="farmer-actions">
-        <span>చెల్లింపు పూర్తయిందా?</span>
-        <button class="btn btn-paid" onclick="openPayModal('${key.replace(/'/g,"\\'")}', ${totNet})" style="padding:8px 18px;font-size:13px">
-          💰 చెల్లింపు అయింది గా మార్చండి
-        </button>
-      </div>` : `
-      <div class="farmer-actions">
-        <span style="color:#1565c0;font-weight:600">✅ ఈ రైతుకు చెల్లింపు పూర్తయింది.</span>
-      </div>`}
+      <div class="fact">
+        ${hasPend
+          ? `<span>చెల్లింపు నమోదు చేయండి:</span>
+             <button class="btn bpay" onclick="openPayMod('${safeKey}',${tNet},${tRem})" style="padding:8px 16px;font-size:12.5px">
+               💰 చెల్లింపు నమోదు చేయండి
+             </button>`
+          : `<span style="color:#1565c0;font-weight:600">✅ ఈ రైతుకు అన్ని చెల్లింపులు పూర్తయ్యాయి.</span>`
+        }
+      </div>
 
-      <div class="table-wrap">
+      <div class="tw">
         <table>
           <thead><tr>
             <th>#</th><th>తేదీ</th><th>పంట</th><th>రకం</th>
-            <th>బస్తాలు</th><th>అదనపు కిలోలు</th><th>మొత్తం బరువు</th><th>రేటు</th>
-            <th>స్థూల(₹)</th><th>వాడకం(₹)</th><th>చెల్లింపు(₹)</th><th>స్థితి</th><th>గమనికలు</th>
+            <th>బస్తాలు</th><th>అద.కిలో</th><th>మొ.బరువు</th><th>రేటు</th>
+            <th>స్థూల(₹)</th><th>వాడకం(₹)</th><th>నికర(₹)</th>
+            <th>చెల్లించిన(₹)</th><th>మిగిలిన(₹)</th><th>స్థితి</th><th>గమనికలు</th>
           </tr></thead>
           <tbody>${rowsHtml}</tbody>
         </table>
@@ -820,85 +887,80 @@ function searchFarmer() {
   }).join('');
 }
 
-// ── EXCEL EXPORTS ─────────────────────────────────────
-function exportToExcel() {
+// ── EXCEL ────────────────────────────────────────
+function exportAll() {
   if (!records.length) { toast('⚠️','నమోదులు లేవు','warn'); return; }
   const hdr=[['పంట నమోదు వ్యవస్థ'],['తేదీ: '+new Date().toLocaleDateString('te-IN')],[],
-    ['#','రైతు పేరు','గ్రామం','పంట','రకం','తేదీ','బస్తాలు','అద.కిలోలు','మొత్తం బరువు','రేటు(₹/కిలో)','స్థూల(₹)','వాడకం(₹)','చెల్లింపు(₹)','స్థితి','గమనికలు']];
+    ['#','రైతు పేరు','గ్రామం','పంట','రకం','తేదీ','బస్తాలు','అద.కి','మొ.బరువు','రేటు','స్థూల','వాడకం','నికర','చెల్లించిన','మిగిలిన','స్థితి','గమనికలు']];
   const rows=records.map(r=>[r.serial,r.farmerName,r.village,r.crop,r.variety,r.date,
-    Number(r.bags||0),Number(r.kilos||0),Number(r.weight||0),Number(r.rate||0),
-    Number(r.gross||0),Number(r.vadakam||0),Number(r.total||0),r.status||'పెండింగ్',r.notes||'']);
-  const totW=records.reduce((s,r)=>s+Number(r.weight||0),0);
-  const totV=records.reduce((s,r)=>s+Number(r.vadakam||0),0);
-  const totN=records.reduce((s,r)=>s+Number(r.total||0),0);
-  buildXlsx([...hdr,...rows,[],['','మొత్తం','','','','','','',totW,'','',totV,totN,'','']],13,'నమోదులు','పంట_నమోదులు');
+    +r.bags||0,+r.kilos||0,+r.weight||0,+r.rate||0,+r.gross||0,+r.vadakam||0,+r.total||0,+r.paidAmt||0,+r.remainAmt||0,r.status||'',r.notes||'']);
+  const tW=records.reduce((s,r)=>s+(+r.weight||0),0);
+  const tV=records.reduce((s,r)=>s+(+r.vadakam||0),0);
+  const tN=records.reduce((s,r)=>s+(+r.total||0),0);
+  const tR=records.reduce((s,r)=>s+(+r.remainAmt||0),0);
+  xlsBuild([...hdr,...rows,[],['','మొత్తం','','','','','','',tW,'','',tV,tN,'',tR,'','']],16,'నమోదులు','పంట_నమోదులు');
 }
 
-function exportPaidToExcel() {
-  const paid=records.filter(r=>String(r.status||'').includes('చెల్లింపు అయింది'));
-  if (!paid.length) { toast('⚠️','చెల్లింపు అయిన నమోదులు లేవు','warn'); return; }
-  const hdr=[['చెల్లింపు పూర్తయిన నమోదులు'],['తేదీ: '+new Date().toLocaleDateString('te-IN')],[],
-    ['#','రైతు పేరు','గ్రామం','పంట','తేదీ','మొత్తం బరువు','వాడకం(₹)','చెల్లింపు(₹)','చెల్లింపు తేదీ']];
-  const rows=paid.map(r=>[r.serial,r.farmerName,r.village,r.crop,r.date,
-    Number(r.weight||0),Number(r.vadakam||0),Number(r.total||0),r.paidDate||'']);
-  buildXlsx([...hdr,...rows],8,'చెల్లింపులు','చెల్లింపు_నమోదులు');
+function exportPaid() {
+  const paid=records.filter(r=>!String(r.status||'').includes('పెండింగ్'));
+  if (!paid.length) { toast('⚠️','చెల్లింపు నమోదులు లేవు','warn'); return; }
+  const hdr=[['చెల్లింపు నమోదులు'],['తేదీ: '+new Date().toLocaleDateString('te-IN')],[],
+    ['#','రైతు పేరు','గ్రామం','పంట','తేదీ','మొ.బరువు','నికర(₹)','చెల్లించిన(₹)','మిగిలిన(₹)','స్థితి','చెల్లింపు తేదీ']];
+  const rows=paid.map(r=>[r.serial,r.farmerName,r.village,r.crop,r.date,+r.weight||0,+r.total||0,+r.paidAmt||0,+r.remainAmt||0,r.status||'',r.paidDate||'']);
+  xlsBuild([...hdr,...rows],10,'చెల్లింపులు','చెల్లింపు_నమోదులు');
 }
 
-function buildXlsx(data, lastCol, sheetName, fileName) {
+function xlsBuild(data, lastCol, sheet, fname) {
   const ws=XLSX.utils.aoa_to_sheet(data);
   ws['!merges']=[{s:{r:0,c:0},e:{r:0,c:lastCol}},{s:{r:1,c:0},e:{r:1,c:lastCol}}];
   const wb=XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb,ws,sheetName);
-  XLSX.writeFile(wb,`${fileName}_${today()}.xlsx`);
+  XLSX.utils.book_append_sheet(wb,ws,sheet);
+  XLSX.writeFile(wb,fname+'_'+toISO()+'.xlsx');
   toast('📥','Excel ఫైల్ డౌన్లోడ్ అవుతోంది!',true);
 }
 
-// ── LIVE CALC ─────────────────────────────────────────
+// ── LIVE CALC ────────────────────────────────────
 function updateCalc() {
-  const bags    = parseInt(document.getElementById('f-bags').value)    || 0;
-  const kilos   = parseFloat(document.getElementById('f-kilos').value) || 0;
-  const rate    = parseFloat(document.getElementById('f-rate').value)  || 0;
-  const vadakam = parseFloat(document.getElementById('f-vadakam').value)||0;
-  const weight  = bags * 100 + kilos;
-  const gross   = weight * rate;
-  const net     = gross - vadakam;
-  document.getElementById('c-weight').textContent  = weight.toLocaleString('te-IN')+' కిలోలు';
-  document.getElementById('c-rate').textContent    = rate>0 ? '₹'+rate.toLocaleString('te-IN') : '—';
-  document.getElementById('c-gross').textContent   = '₹'+gross.toLocaleString('te-IN',{minimumFractionDigits:2});
-  document.getElementById('c-vadakam').textContent = '₹'+vadakam.toLocaleString('te-IN',{minimumFractionDigits:2});
-  document.getElementById('c-total').textContent   = '₹ '+net.toLocaleString('te-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const crop     = gfv('fcs','fco');
+  const kgPerBag = getKgPerBag(crop);
+  const bags     = parseInt(document.getElementById('fbags').value)   || 0;
+  const kilos    = parseFloat(document.getElementById('fkilos').value)|| 0;
+  const rate     = parseFloat(document.getElementById('frate').value) || 0;
+  const vadakam  = parseFloat(document.getElementById('fvad').value)  || 0;
+  const weight   = bags * kgPerBag + kilos;
+  const gross    = weight * rate;
+  const net      = gross - vadakam;
+  document.getElementById('kpb-hint').textContent = crop==='వరి'
+    ? '⚠️ వరి పంట: బస్తాకు 84 కిలోలు'
+    : 'ఈ పంటకు బస్తాకు 100 కిలోలు';
+  document.getElementById('cw').textContent = weight.toLocaleString('te-IN')+' కిలోలు';
+  document.getElementById('cr').textContent = rate>0 ? '₹'+rate.toLocaleString('te-IN') : '—';
+  document.getElementById('cg').textContent = '₹'+gross.toLocaleString('te-IN',{minimumFractionDigits:2});
+  document.getElementById('cv').textContent = '₹'+vadakam.toLocaleString('te-IN',{minimumFractionDigits:2});
+  document.getElementById('ct').textContent = '₹ '+net.toLocaleString('te-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 
-// ── CLEAR FORM ────────────────────────────────────────
-function clearForm() {
-  ['f-name','f-variety','f-bags','f-kilos','f-rate','f-notes'].forEach(id=>{
-    document.getElementById(id).value='';
-    document.getElementById(id).classList.remove('err');
-  });
-  document.getElementById('f-village-sel').value='';
-  document.getElementById('f-village-other').value='';
-  document.getElementById('f-village-other').classList.remove('show');
-  document.getElementById('f-crop-sel').value='';
-  document.getElementById('f-crop-other').value='';
-  document.getElementById('f-crop-other').classList.remove('show');
-  document.getElementById('f-vadakam').value='0';
-  document.getElementById('f-date').value=today();
+// ── CLEAR FORM ───────────────────────────────────
+function clrForm() {
+  ['fn','fvar','fbags','fkilos','frate','fnotes'].forEach(id=>{ document.getElementById(id).value=''; document.getElementById(id).classList.remove('er'); });
+  document.getElementById('fvs').value=''; document.getElementById('fvo').value=''; document.getElementById('fvo').classList.remove('show');
+  document.getElementById('fcs').value=''; document.getElementById('fco').value=''; document.getElementById('fco').classList.remove('show');
+  document.getElementById('fvad').value='0';
+  document.getElementById('fdt').value=toISO();
+  document.getElementById('kpb-hint').textContent='వరి పంట: బస్తాకు 84 కిలోలు | మిగతా: 100 కిలోలు';
   updateCalc();
 }
 
-// ── HELPERS ───────────────────────────────────────────
-function today() { return new Date().toISOString().split('T')[0]; }
-function formatDate(v) { if(!v)return''; const[y,m,d]=v.split('-'); return`${d}/${m}/${y}`; }
-function setStatus(type,text) {
-  document.getElementById('status-dot').className='status-dot '+type;
-  document.getElementById('status-text').textContent=text;
-}
-function toast(icon,msg,type) {
-  const t=document.getElementById('toast');
-  document.getElementById('t-icon').textContent=icon;
-  document.getElementById('t-msg').textContent=msg;
-  t.className='toast show'+(type==='warn'?' warn':type==='fail'?' fail':'');
-  setTimeout(()=>t.className='toast'+(type==='warn'?' warn':type==='fail'?' fail':''),3200);
+// ── HELPERS ──────────────────────────────────────
+function toISO()      { return new Date().toISOString().split('T')[0]; }
+function fmtDate(v)   { if(!v) return ''; const[y,m,d]=v.split('-'); return d+'/'+m+'/'+y; }
+function setStatus(t,x) { document.getElementById('sdot').className='sdot '+t; document.getElementById('stxt').textContent=x; }
+function toast(ico,msg,t) {
+  const el=document.getElementById('toast');
+  document.getElementById('tico').textContent=ico;
+  document.getElementById('tmsg').textContent=msg;
+  el.className='toast show'+(t==='warn'?' warn':t==='fail'?' fail':'');
+  setTimeout(()=>el.className='toast'+(t==='warn'?' warn':t==='fail'?' fail':''),3200);
 }
 </script>
 </body>
